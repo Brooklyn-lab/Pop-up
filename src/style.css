@@ -68,11 +68,8 @@ img {
   justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
-  @media screen and (max-width: 768px) {
-    .header__navigation.active {
-      position: fixed;
-      z-index: 100; } }
+  align-items: center;
+  height: 39px; }
 
 .header__logo-link {
   text-decoration: none;
@@ -81,6 +78,12 @@ img {
   .header__logo-link:hover,
   .header__logo-link :focus {
     text-decoration: none; }
+  @media screen and (max-width: 768px) {
+    .header__logo-link.active {
+      position: fixed;
+      z-index: 100;
+      top: 30px;
+      left: 15px; } }
 
 .nav__items {
   display: -webkit-box;
@@ -188,8 +191,7 @@ img {
   cursor: pointer;
   z-index: 20; }
   .header__button.active {
-    top: 5px;
-    right: 30px; }
+    position: fixed; }
 
 #span.active {
   background: #6c231ed2; }
@@ -346,3 +348,72 @@ img {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
+
+.title {
+  font-size: 35px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #000;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 40px; }
+  .title::before {
+    position: absolute;
+    content: "";
+    width: 150px;
+    height: 15px;
+    background: crimson;
+    bottom: -4px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: -1; }
+
+.body {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 30px; }
+  .body__item {
+    width: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background: burlywood;
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1; }
+  .body__title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #000; }
+  .body__text {
+    color: #000;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 400;
+    margin: 15px 0 50px;
+    text-align: left; }
+  .body__button {
+    background: crimson;
+    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 700;
+    color: #000; }

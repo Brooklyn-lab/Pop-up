@@ -7,6 +7,11 @@ jQuery(document).ready(function () {
       all.toggleClass("active"); /* Добавляем и убираем класс active при клике */
    })
 
+   $(".fa-search").click(function(){
+      $(".nav-search__container, .nav-search__input").toggleClass("active");
+      $("nav-search__input[type='text']").focus();
+  });
+
    // ------------------- Попап ---------------
 
    $(document).ready(function () { /* Заставляем работать функцию после загрузки всей страницы */

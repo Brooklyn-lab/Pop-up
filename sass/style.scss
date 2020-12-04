@@ -298,6 +298,129 @@ img {
   top: 8px;
 }
 
+.nav-search {
+  position: relative;
+
+  &__wrapper {
+    position: absolute;
+    top: 170%;
+    right: 75%;
+
+    @media screen and (max-width: 768px) {
+      right: 0;
+      left: 45%;
+    }
+
+    @media screen and (max-width: 576px) {
+      top: 190%;
+      right: 50%;
+      left: -280%;
+    }
+  }
+
+  &__container {
+    width: 0px;
+    height: 50px;
+    background: #41484a;
+    text-align: center;
+    line-height: 45px;
+    transition: all 0.5s ease;
+    border-radius: 5px 0 5px 5px;
+    position: relative;
+    z-index: 100;
+
+    @media screen and (max-width: 768px) {
+      border-radius: 0px 5px 5px 5px;
+    }
+
+    @media screen and (max-width: 576px) {
+      width: 250px;
+      height: 0;
+      border-radius: 5px;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      right: 0;
+    }
+  }
+
+  &__container.active {
+    width: 250px;
+    transition: all 0.5s ease;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 10px;
+      height: 10px;
+      top: -9px;
+      right: 0;
+      border: 5px solid transparent;
+      border-right: 5px solid #41484a;
+      border-bottom: 5px solid #41484a;
+
+      @media screen and (max-width: 768px) {
+        left: 0%;
+        border-left: 5px solid #41484a;
+        border-bottom: 5px solid #41484a;
+        border-right: 5px solid transparent;
+        border-top: 5px solid transparent;
+      }
+
+      @media screen and (max-width: 576px) {
+        left: 50%;
+        top: -38%;
+        transform: translate(-50%);
+        border: 10px solid transparent;
+        border-bottom: 10px solid #41484a;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      height: 50px;
+    }
+  }
+
+  &__input.active {
+    width: 95%;
+    padding: 0 5px;
+    transition: all 0.5s 0.8s ease;
+  }
+
+  &__input {
+    border: 0px;
+    border-bottom: 2px solid #fff;
+    background: transparent;
+    width: 0%;
+    padding: 5px 0;
+    outline: none;
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    line-height: 30px;
+
+    &::placeholder {
+      color: #fff;
+      font-size: 14px;
+    }
+  }
+
+  &__fa {
+    color: #777;
+    cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+      margin: 0 10px;
+      font-size: 18px;
+    }
+  }
+}
+
 // ---------------- End Navigation ---------------
 
 // ---------------- Begin Popup ---------------

@@ -20,7 +20,7 @@
 
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -31,7 +31,7 @@
 
     &::after {
       position: absolute;
-      content: '';
+      content: "";
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -49,8 +49,8 @@
       &.active {
         position: fixed;
         z-index: 100;
-        top: 30px;
-        left: 15px;
+        top: 28px;
+        left: 10px;
       }
     }
   }
@@ -93,7 +93,7 @@
     }
 
     &:before {
-      content: '';
+      content: "";
       width: 0;
       height: 0.1em;
       position: absolute;
@@ -114,7 +114,7 @@
       font-size: 22px;
 
       &:before {
-        content: '';
+        content: "";
         width: 0;
         height: 0.1em;
         position: absolute;
@@ -190,6 +190,7 @@
     width: 300px;
     height: 100%;
     margin: 0;
+    z-index: 10;
     padding: 40px 0;
     list-style: none;
     background: #6c231ed2;
@@ -203,7 +204,6 @@
     &.active {
       visibility: visible;
       left: 0;
-      z-index: 10;
       transition-duration: 0.5s;
 
       @media screen and (max-width: 768px) {
@@ -251,11 +251,11 @@
   }
 }
 .header__button > span::before {
-  content: '';
+  content: "";
   top: -8px;
 }
 .header__button > span::after {
-  content: '';
+  content: "";
   top: 8px;
 }
 
@@ -302,7 +302,7 @@
 
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       width: 10px;
       height: 10px;
       top: -10px;
@@ -316,7 +316,7 @@
 
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       width: 10px;
       height: 10px;
       top: -9px;

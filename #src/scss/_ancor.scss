@@ -32,6 +32,19 @@
     height: 100%;
     display: block;
 
+    &::after {
+      position: absolute;
+      content: "";
+      left: 40%;
+      top: 45%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      border-left: 3px solid #fff;
+      border-top: 3px solid #fff;
+      transform: rotate(45deg);
+    }
+
     i {
       color: #fff;
     }

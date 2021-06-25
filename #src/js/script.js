@@ -1,10 +1,12 @@
 @@include('webP.js');
+@@include('form.js');
 
 $(window).on('load', function () {
   $('.preloader').fadeOut().end().delay(400).fadeOut('slow');
 });
 
 jQuery(document).ready(function () {
+
   // Анимированный логотип
   $('#logo').hover(
     function () {
@@ -216,4 +218,5 @@ jQuery(document).ready(function () {
   //   }
   // });
 
+  //--------------------------------------------
 });

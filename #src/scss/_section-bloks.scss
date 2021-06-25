@@ -10,7 +10,7 @@
 
   &::before {
     position: absolute;
-    content: '';
+    content: "";
     width: 150px;
     height: 15px;
     background: crimson;
@@ -48,7 +48,7 @@
 
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       left: 50%;
       transform: translate(-50%);
       width: 130px;
@@ -146,7 +146,7 @@
 
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       width: 110%;
       height: 2px;
       left: -3px;
@@ -249,7 +249,7 @@
 
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       height: 100%;
       width: 1px;
       left: -50px;
@@ -280,7 +280,7 @@
 
     &::before {
       position: absolute;
-      content: url('../img/check-mark.png');
+      content: url("../img/check-mark.png");
       left: -26px;
       top: 0;
     }
@@ -336,7 +336,7 @@
   }
 
   &__special {
-    background: url('/images/page/its/special.png') no-repeat center/cover;
+    background: url("/images/page/its/special.png") no-repeat center/cover;
     position: absolute;
     top: -6px;
     right: 5px;
@@ -659,7 +659,7 @@ a.feedback__link:focus p.feedback__text {
 
 .feedback__link_viber .feedback__social::before {
   position: absolute;
-  content: '';
+  content: "";
   background-image: url(../../../images/article/all-modal/viber-ico.png);
   width: 50px;
   height: 50px;
@@ -670,7 +670,7 @@ a.feedback__link:focus p.feedback__text {
 
 .feedback__link_call .feedback__social::before {
   position: absolute;
-  content: '';
+  content: "";
   background-image: url(../../../images/article/all-modal/call-back-ico.png);
   width: 50px;
   height: 50px;
@@ -681,7 +681,7 @@ a.feedback__link:focus p.feedback__text {
 
 .feedback__link_chat .feedback__social::before {
   position: absolute;
-  content: '';
+  content: "";
   background-image: url(../../../images/article/all-modal/chat-ico.png);
   width: 50px;
   height: 50px;
@@ -694,4 +694,69 @@ p.feedback__text {
   margin: 0 0 0 0;
   font: 400 18px / 26px roboto;
   color: #ed7d71;
+}
+
+
+.accordion {
+  color: #000;
+  display: flex;
+  max-width: 1020px;
+  margin: 0 auto;
+  width: 100%;
+
+  &__link-wrapper {
+    list-style: none;
+    width: 50%;
+  }
+
+  &__link {
+    padding: 15px;
+    background: #F9F9F9;
+
+    a {
+      font-size: 16px;
+      line-height: 21px;
+      font-weight: 400;
+      color: #000;
+    }
+
+    &.uk-active {
+      background: #e6efff;
+
+      a {
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__content-wrapper {
+    list-style: none;
+    width: 50%;
+    padding: 15px;
+    max-height: 310px;
+    overflow-y: auto;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 400;
+    color: #000;
+  }
+
+  &__text-title {
+    font-weight: 500;
+  }
+
+  &__strong {
+    font-weight: 500;
+  }
+
+  &__content {
+    display: none;
+
+    &.uk-active {
+      display: block;
+    }
+  }
 }

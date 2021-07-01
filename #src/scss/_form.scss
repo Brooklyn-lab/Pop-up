@@ -12,6 +12,11 @@
    max-width: 480px;
    margin: 0 auto;
 
+   &__body {
+      width: 100%;
+      overflow: hidden;
+   }
+
    &__prev {
       font-weight: 600;
       font-size: 12px;
@@ -68,6 +73,23 @@
 }
 
 .form {
+
+   &__body-wrapper {
+      display: flex;
+      width: 700%;
+   }
+
+   &__body {
+      width: 14.28%;
+      transition: margin-left 0.3s ease-in-out;
+   }
+
+   &__title {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 140%;
+   }
+
    &__content {
       display: flex;
       flex-direction: column;
@@ -108,8 +130,8 @@
       font-size: 15px;
       line-height: 90%;
 
-      &:not(:last-child) {
-         margin-bottom: 35px;
+      &:not(:first-child) {
+         margin-top: 35px;
       }
 
       &::placeholder {
@@ -145,6 +167,10 @@
       height: 55px;
       color: #fff;
       cursor: pointer;
+
+      &.hidden {
+         display: none;
+      }
    }
 }
 
@@ -161,4 +187,12 @@ input[type="radio"]:checked + .form__circle {
       top: 50%;
       transform: translate(-50%, -50%);
    }
+}
+
+label.error {
+   margin-top: 5px;
+   color: red;
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 90%;
 }

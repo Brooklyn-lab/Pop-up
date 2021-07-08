@@ -1,316 +1,4 @@
 jQuery(document).ready(function ($) {
-
-   // const countNumber = $('#progresNumber')
-   // const buttonNext = $('.form__button-next');
-   // const buttonPrev = $('.card__prev');
-   // const formContent = $('.form__content');
-
-   // let arr = []
-   // let personalizedd;
-   // let steps = 1;
-   // let names = '';
-   // let lastNames = '';
-   // // let email = '';
-   // // let id;
-   // // let dateBirth; 
-
-   // $("#myForm").validate({
-   //    rules: {
-   //       name: {
-   //          required: true,
-   //          minlength: 3
-   //       },
-   //       lastName: {
-   //          required: true,
-   //          minlength: 3
-   //       },
-   //       idNumber: 'required',
-   //       birthDate: 'required',
-   //       preTax: 'required',
-   //       email: {
-   //          required: true,
-   //          email: true
-   //       },
-   //       telephone: 'required'
-   //    },
-   //    submitHandler: function (form) {
-
-   //    }
-
-   // })
-
-
-   // $.validator.addMethod(
-   //    "regex",
-   //    function (value, element, regexp) {
-   //       var re = new RegExp(regexp);
-   //       return this.optional(element) || re.test(value);
-   //    },
-   //    "Please check your input."
-   // );
-
-   // // Функция валидации и вывода сообщений
-   // function valEl(el) {
-
-   //    el.validate({
-   //       rules: {
-   //          name: {
-   //             required: true,
-   //             minlength: 3,
-   //          },
-   //          lastName: {
-   //             required: true,
-   //             minlength: 3,
-   //          },
-   //          idNumber: {
-   //             required: true,
-   //             minlength: 3,
-   //          },
-   //          birthDate: {
-   //             required: true
-   //          },
-   //          preTax: {
-   //             required: true
-   //          },
-   //          tel: {
-   //             required: true,
-   //             regex: '^([\+]+)*[0-9\x20\x28\x29\-]{5,20}$'
-   //          },
-   //          email: {
-   //             required: true,
-   //             email: true
-   //          }
-   //       },
-   //    })
-   // }
-
-   // $('.form').each(function () {
-   //    valEl($(this));
-   // });
-
-   // function nextQuestion(personalized, name, lastName, idNumber, birthDate, credits, employment, preTax, email, telephone) {
-   //    // arr.push(personalized, name, lastName, idNumber, birthDate, credits, employment, preTax, email, telephone)
-
-   //    personalizedd = personalized;
-   // }
-
-   // function nextQuestion2(name, lastName) {
-   //    names = name;
-   //    lastNames = lastName;
-   // }
-
-   // const countUp = () => {
-   //    countNumber.html(function (i, val) {
-   //       if (val >= 8) {
-   //          return 8
-   //       } else if (val > 0 || $('input[name=credits-btn]:checked').length > 0) {
-   //          buttonPrev.removeClass('disable')
-   //          return steps = val * 1 + 1
-   //       }
-   //    })
-   // }
-
-   // const countDown = () => {
-   //    countNumber.html(function (i, val) {
-   //       if (val <= 1) {
-   //          buttonPrev.addClass('disable')
-   //          return 1
-   //       } else if (val <= 2) {
-   //          buttonPrev.addClass('disable')
-   //          return steps = val * 1 - 1
-   //       } else {
-   //          return steps = val * 1 - 1
-   //       }
-   //    });
-   // }
-
-   // const step1 = () =>
-   //    `
-   //       <p class="card__title">Request your personalized loan-proposal</p>
-   //       <div class='form__wrapper'>
-   //          <label for="one-btn" class="form__radio-btn">
-   //             <input type="radio" name='personalized' id="one-btn" data-value='5'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">Less than €5,000</span>
-   //          </label>
-   //          <label for="two-btn" class="form__radio-btn">
-   //             <input type="radio" name='personalized' id="two-btn" data-value='5/25'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">€5,000-€25,000</span>
-   //          </label>
-   //          <label for="three-btn" class="form__radio-btn">
-   //             <input type="radio" name='personalized' id="three-btn" data-value='25'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">More than €25,000</span>
-   //          </label>
-   //       </div>
-   //    `
-
-   // const step2 = () =>
-   //    `
-   //       <p class="card__title">Fill the rows below to suits better loan-offer for you</p>
-   //       <div class='form__wrapper'>
-   //          <input type="text" name='name' placeholder='First name' class='form__input' require>
-   //          <input type="text" name='lastName' placeholder='Last name' class='form__input' require>
-   //       </div>
-   //    `
-
-   // const step3 = () =>
-   //    `
-   //       <div class='form__wrapper'>
-   //          <input id='idNumber' type="number" name='idNumber' placeholder='ID-number' class='form__input' require>
-   //          <input type="number" id='date' name='birthDate' placeholder='Date of birth' class='form__input' require>
-   //       </div>
-   //    `
-
-   // const step4 = () =>
-   //    `
-   //       <p class="card__title">Credit score</p>
-   //       <div class='form__wrapper'>
-   //          <label for="four-btn" class="form__radio-btn">
-   //             <input type="radio" name='credits' checked id="four-btn" data-value='<720'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">Excellent (720-850)</span>
-   //          </label>
-   //          <label for="fiwe-btn" class="form__radio-btn">
-   //             <input type="radio" name='credits' id="fiwe-btn" data-value='<680'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">Good (680-719)</span>
-   //          </label>
-   //          <label for="six-btn" class="form__radio-btn">
-   //             <input type="radio" name='credits' id="six-btn" data-value='<640'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">Fair (640-679)</span>
-   //          </label>
-   //          <label for="seven-btn" class="form__radio-btn">
-   //             <input type="radio" name='credits' id="seven-btn" data-value='>639'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">Poor (0-639)</span>
-   //          </label>
-   //       </div>
-   //    `
-
-   // const step5 = () =>
-   //    `
-   //       <p class="card__title">Employment status</p>
-   //       <div class='form__wrapper'>
-   //          <label for="eight-btn" class="form__radio-btn">
-   //             <input type="radio" checked name='employment' id="eight-btn" data-value='full time'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">Full Time</span>
-   //          </label>
-   //          <label for="nine-btn" class="form__radio-btn">
-   //             <input type="radio" name='employment' id="nine-btn" data-value='part time'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">Part Time</span>
-   //          </label>
-   //          <label for="ten-btn" class="form__radio-btn">
-   //             <input type="radio" name='employment' id="ten-btn" data-value='employed'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">Self-Employed</span>
-   //          </label>
-   //          <label for="eleven-btn" class="form__radio-btn">
-   //             <input type="radio" name='employment' id="eleven-btn" data-value='unemployed'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">Unemployed</span>
-   //          </label>
-   //          <label for="twelve-btn" class="form__radio-btn">
-   //             <input type="radio" name='employment' id="twelve-btn" data-value='other'>
-   //             <span class="form__circle"></span>
-   //             <span class="form__text">Other</span>
-   //          </label>
-   //       </div>   
-   //    `
-
-   // const step6 = () =>
-   //    `
-   //       <p class="card__title">What’s your yearly pre-tax income?</p>
-   //       <div class='form__wrapper'>
-   //          <input id='preTax' type="number" name='preTax' placeholder='€ 90.000' class='form__input' require> 
-   //       </div>
-   //    `
-
-   // const step7 = () =>
-   //    `
-   //       <p class="card__title">How do we contact you?</p>
-   //       <div class='form__wrapper'>
-   //          <input type="email" name='email' placeholder='E-mail' class='form__input' require>
-   //          <input type="tel" id='phone' pattern="\+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}" name='telephone' placeholder='+1 201-555-0123' class='form__input' require>
-   //       </div>
-   //    `
-
-   // if ($('input[name=credits-btn]:checked').length === 0) {
-   //    formContent.html(step1())
-   // }
-
-   // buttonNext.click(function () {
-
-   //    if (steps === 1 && $('input[name=personalized]:checked').length != 0) {
-   //       nextQuestion($('input[name=personalized]:checked').attr('data-value'))
-   //       countUp()
-   //       formContent.html(step2())
-   //    } else if (steps === 2) {
-   //       nextQuestion2($('input[name=name]').val(), $('input[name=lastName]').val())
-   //       countUp()
-   //       formContent.html(step3())
-   //    } else if (steps === 3 && $('input[name=idNumber]').val().length != 0 && $('input[name=birthDate]').val().length != 0) {
-   //       nextQuestion($('input[name=idNumber]').val(), $('input[name=birthDate]').val())
-   //       countUp()
-   //       formContent.html(step4())
-   //    } else if (steps === 4 && $('input[name=credits]:checked').length != 0) {
-   //       nextQuestion($('input[name=credits]:checked').attr('data-value'))
-   //       countUp()
-   //       formContent.html(step5())
-   //    } else if (steps === 5 && $('input[name=employment]:checked').length != 0) {
-   //       nextQuestion($('input[name=employment]:checked').attr('data-value'))
-   //       countUp()
-   //       formContent.html(step6())
-   //    } else if (steps === 6 && $('input[name=preTax]').val().length != 0) {
-   //       nextQuestion($('input[name=preTax]').val())
-   //       countUp()
-   //       formContent.html(step7())
-   //    } else if (steps === 7 && $('input[name=email]').val().length != 0 && $('input[name=telephone]').val().length != 0) {
-   //       nextQuestion($('input[name=email]').val(), $('input[name=telephone]').val())
-   //       console.log(arr)
-   //       countUp()
-   //       buttonNext.attr('type', 'submit')
-   //       formContent.html(step8())
-   //    }
-   // })
-
-   // buttonPrev.click(function (event) {
-   //    event.preventDefault();
-
-   //    if (steps === 2) {
-   //       countDown()
-   //       formContent.html(step1())
-   //    } else if (steps === 3) {
-   //       countDown()
-   //       formContent.html(step2())
-   //    } else if (steps === 4) {
-   //       countDown()
-   //       formContent.html(step3())
-   //    } else if (steps === 5) {
-   //       countDown()
-   //       formContent.html(step4())
-   //    } else if (steps === 6) {
-   //       countDown()
-   //       formContent.html(step5())
-   //    } else if (steps === 7) {
-   //       countDown()
-   //       formContent.html(step6())
-   //    } else if (steps === 8) {
-   //       countDown()
-   //       formContent.html(step7())
-   //    }
-   // });
-
-   // $("#date").mask("99/99/9999");
-   // $("#phone").mask("(999) 999-9999", { autoclear: false });
-   // $("#tin").mask("99-9999999");
-   // $("#ssn").mask("999-99-9999");
-
-
    // const slidePage = $(".slide-page");
    // const btnNext = $(".form__button-next");
    // const countNumber = $('#progresNumber');
@@ -518,11 +206,12 @@ jQuery(document).ready(function ($) {
 
    // $("#date").mask("99/99/9999");
 
-
-   const countNumber = $('#progresNumber')
+   const form = $('.form');
+   const countNumber = $('#progresNumber');
    const buttonNext = $('.form__button-next');
    const buttonPrev = $('.card__prev');
    const formContent = $('.form__content');
+   const buttonReset = $('#buttonReset');
 
    let steps = 1;
    let date = {
@@ -536,6 +225,60 @@ jQuery(document).ready(function ($) {
       preTaxValue = '',
       emailValue = '',
       telephoneValue = '',
+   }
+
+   buttonReset.hide();
+
+   buttonReset.click(function () {
+      form.trigger('reset');
+   })
+
+   const formValidate = function () {
+      form.validate({
+         rules: {
+            name: {
+               required: true,
+               minlength: 3,
+            },
+            lastName: {
+               required: true,
+               minlength: 3,
+            },
+            idNumber: {
+               required: true,
+               minlength: 3,
+            },
+            birthDate: {
+               required: true
+            },
+            preTax: {
+               required: true
+            },
+            tel: {
+               required: true,
+               regex: '^([\+]+)*[0-9\x20\x28\x29\-]{5,20}$'
+            },
+            email: {
+               required: true,
+               email: true
+            }
+         },
+      })
+   }
+
+   formValidate();
+
+   const addCheckInput = function () {
+      let allInputs = $('.form__wrapper').find('input');
+      $.each(allInputs, function (index, value) {
+         if ($(this).attr('data-value') == date.personalizedValue) {
+            $(this).attr('checked', '')
+         } else if ($(this).attr('data-value') == date.creditsValue) {
+            $(this).attr('checked', '')
+         } else if ($(this).attr('data-value') == date.employmentValue) {
+            $(this).attr('checked', '')
+         }
+      })
    }
 
    //  Счетчик степов вверх
@@ -600,7 +343,7 @@ jQuery(document).ready(function ($) {
       `
          <div class='form__wrapper'>
             <input id='idNumber' type="number" name='idNumber' placeholder='ID-number' class='form__input' require>
-            <input type="number" id='date' name='birthDate' placeholder='Date of birth' class='form__input' require>
+            <input type="text" id='date' name='birthDate' placeholder='Date of birth' class='form__input' require>
          </div>
       `
 
@@ -676,11 +419,16 @@ jQuery(document).ready(function ($) {
          <p class="card__title">How do we contact you?</p>
          <div class='form__wrapper'>
             <input type="email" name='email' placeholder='E-mail' class='form__input' require>
-            <input type="tel" id='phone' pattern="\+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}" name='telephone' placeholder='+1 201-555-0123' class='form__input' require>
+            <input type="tel" id='phone' name='telephone' placeholder='+1 201-555-0123' class='form__input' require>
          </div>
       `
 
-   const step8 = () => `<p class="card__title">Thanks for registration</p>`   
+   const step8 = () =>
+      `
+      <p class="card__title">Thank you for filling out the form!</p>
+      <p class="card__title">We’ll send you an email with loan-information in 24h at the email address you provided. </p>
+      <p>Respectfully, The <span>[Your Company]</span> Team</p>
+      `
 
    // Показывает изначально 1й степ.
    if ($('input[name=credits-btn]:checked').length === 0) {
@@ -702,13 +450,14 @@ jQuery(document).ready(function ($) {
          formContent.html(step2())
          $(`input[name=name]`).val(`${date.nameValue}`)
          $(`input[name=lastName]`).val(`${date.lastNameValue}`)
-      } else if (steps === 2) {
+      } else if (steps === 2 && inputValueLength('name') && inputValueLength('lastName')) {
          (() => {
             date.nameValue = inputValue('name');
             date.lastNameValue = inputValue('lastName');
          })();
          countUp()
          formContent.html(step3())
+         $('#date').mask('99/99/99')
          $(`input[name=idNumber]`).val(`${date.idNumberValue}`)
          $(`input[name=birthDate]`).val(`${date.birthDateValue}`)
       } else if (steps === 3 && inputValueLength('idNumber') && inputValueLength('birthDate')) {
@@ -731,6 +480,7 @@ jQuery(document).ready(function ($) {
          (() => date.preTaxValue = inputValue('preTax'))()
          countUp()
          formContent.html(step7())
+         $('#phone').mask('+9 (999) 999-99-99')
          $(`input[name=email]`).val(`${date.emailValue}`)
          $(`input[name=telephone]`).val(`${date.telephoneValue}`)
       } else if (steps === 7 && inputValueLength('email') && inputValueLength('telephone')) {
@@ -741,6 +491,8 @@ jQuery(document).ready(function ($) {
          countUp()
          console.log(date)
          formContent.html(step8())
+         buttonPrev.hide()
+         buttonReset.show()
       }
    })
 
@@ -751,11 +503,7 @@ jQuery(document).ready(function ($) {
          case 2: {
             countDown()
             formContent.html(step1())
-
-            console.log(date.personalizedValue == $(`input[name=personalized]`).attr('data-value'))
-            // if (date.personalizedValue == $(`input[name=personalized]`).attr('data-value')) {
-            //    return $(this).attr('checked')
-            // }
+            addCheckInput()
             break;
          }
          case 3: {
@@ -775,11 +523,13 @@ jQuery(document).ready(function ($) {
          case 5: {
             countDown()
             formContent.html(step4())
+            addCheckInput()
             break;
          }
          case 6: {
             countDown()
             formContent.html(step5())
+            addCheckInput()
             break;
          }
          case 7: {
@@ -791,16 +541,14 @@ jQuery(document).ready(function ($) {
          case 8: {
             countDown()
             formContent.html(step7())
+            buttonReset.hide()
+            buttonPrev.show()
             $(`input[name=email]`).val(`${date.emailValue}`)
             $(`input[name=telephone]`).val(`${date.telephoneValue}`)
             break;
          }
       }
    })
-
-
-
-
 
 
 

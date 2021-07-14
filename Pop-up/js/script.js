@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
    // const slidePage = $(".slide-page");
    // const btnNext = $(".form__button-next");
    // const countNumber = $('#progresNumber');
-   // const btnPrev = $('.card__prev');
+   // const btnPrev = $('.survey__prev');
    // const numberSteps = $('.form__body').length + 1;
 
    // let steps = 1;
@@ -224,7 +224,7 @@ jQuery(document).ready(function ($) {
    const form = $('.form');
    const countNumber = $('#progresNumber');
    const buttonNext = $('.form__button-next');
-   const buttonPrev = $('.card__prev');
+   const buttonPrev = $('.survey__prev');
    const formContent = $('.form__content');
    const buttonReset = $('#buttonReset');
 
@@ -325,7 +325,7 @@ jQuery(document).ready(function ($) {
 
    const step1 = () =>
       `
-      <p class="card__title">Request your personalized loan-proposal</p>
+      <p class="survey__title">Request your personalized loan-proposal</p>
       <div class='form__wrapper'>
          <label for="one-btn" class="form__radio-btn">
             <input type="radio" name='personalized' id="one-btn" data-value='5'>
@@ -347,7 +347,7 @@ jQuery(document).ready(function ($) {
 
    const step2 = () =>
       `
-      <p class="card__title">Fill the rows below to suits better loan-offer for you</p>
+      <p class="survey__title">Fill the rows below to suits better loan-offer for you</p>
       <div class='form__wrapper'>
          <input type="text" name='name' placeholder='First name' class='form__input' require>
          <input type="text" name='lastName' placeholder='Last name' class='form__input' require>
@@ -364,7 +364,7 @@ jQuery(document).ready(function ($) {
 
    const step4 = () =>
       `
-         <p class="card__title">Credit score</p>
+         <p class="survey__title">Credit score</p>
          <div class='form__wrapper'>
             <label for="four-btn" class="form__radio-btn">
                <input type="radio" name='credits' checked id="four-btn" data-value='<720'>
@@ -391,7 +391,7 @@ jQuery(document).ready(function ($) {
 
    const step5 = () =>
       `
-         <p class="card__title">Employment status</p>
+         <p class="survey__title">Employment status</p>
          <div class='form__wrapper'>
             <label for="eight-btn" class="form__radio-btn">
                <input type="radio" checked name='employment' id="eight-btn" data-value='full time'>
@@ -423,7 +423,7 @@ jQuery(document).ready(function ($) {
 
    const step6 = () =>
       `
-         <p class="card__title">What’s your yearly pre-tax income?</p>
+         <p class="survey__title">What’s your yearly pre-tax income?</p>
          <div class='form__wrapper'>
             <input id='preTax' type="number" name='preTax' placeholder='€ 90.000' class='form__input' require> 
          </div>
@@ -431,7 +431,7 @@ jQuery(document).ready(function ($) {
 
    const step7 = () =>
       `
-         <p class="card__title">How do we contact you?</p>
+         <p class="survey__title">How do we contact you?</p>
          <div class='form__wrapper'>
             <input type="email" name='email' placeholder='E-mail' class='form__input' require>
             <input type="tel" id='phone' name='telephone' placeholder='+1 201-555-0123' class='form__input' require>
@@ -440,8 +440,8 @@ jQuery(document).ready(function ($) {
 
    const step8 = () =>
       `
-      <p class="card__title">Thank you for filling out the form!</p>
-      <p class="card__title">We’ll send you an email with loan-information in 24h at the email address you provided. </p>
+      <p class="survey__title">Thank you for filling out the form!</p>
+      <p class="survey__title">We’ll send you an email with loan-information in 24h at the email address you provided. </p>
       <p>Respectfully, The <span>[Your Company]</span> Team</p>
       `
 
@@ -629,6 +629,70 @@ jQuery(document).ready(function ($) {
 
 
 ;
+jQuery(document).ready(function () {
+
+   const form = $('.form');
+   const countNumber = $('#progresNumber');
+   const buttonNext = $('.form__button-next');
+
+   let steps = 1;
+
+   //  Счетчик степов вверх
+   const countUp = () => {
+      countNumber.html(function (i, val) {
+         if (val >= 8) {
+            return 8
+         } else if (val > 0) {
+            return steps = val * 1 + 1
+         }
+      })
+   }
+
+   const step1 = () =>
+      `
+      <label for="one-btn" class="form__radio-btn">
+         <input type="radio" name='shop' id="one-btn" data-value='1'>
+         <span class="form__circle"></span>
+         <span class="form__text">Daily</span>
+      </label>
+      <label for="two-btn" class="form__radio-btn">
+         <input type="radio" name='shop' id="two-btn" data-value='2'>
+         <span class="form__circle"></span>
+         <span class="form__text">Once in 2-3 days</span>
+      </label>
+      <label for="three-btn" class="form__radio-btn">
+         <input type="radio" name='shop' id="three-btn" data-value='3'>
+         <span class="form__circle"></span>
+         <span class="form__text">Weekly</span>
+      </label>
+      <label for="four-btn" class="form__radio-btn">
+         <input type="radio" name='shop' id="four-btn" data-value='4'>
+         <span class="form__circle"></span>
+         <span class="form__text">Monthly</span>
+      </label>
+      <label for="five-btn" class="form__radio-btn">
+         <input type="radio" name='shop' id="five-btn" data-value='5'>
+         <span class="form__circle"></span>
+         <span class="form__text">Once in 2-3 months</span>
+      </label>
+      <label for="six-btn" class="form__radio-btn">
+         <input type="radio" name='shop' id="six-btn" data-value='6'>
+         <span class="form__circle"></span>
+         <span class="form__text">When I'm free</span>
+      </label>
+      <label for="seven-btn" class="form__radio-btn">
+         <input type="radio" name='shop' id="seven-btn" data-value='7'>
+         <span class="form__circle"></span>
+         <span class="form__text">Other</span>
+      </label>
+      <input type="text" name='specify' id="one-btn" placeholder='please specify'>
+   `
+
+   if ($('input[name=credits-btn]:checked').length === 0) {
+      formContent.html(step1())
+   }
+
+});
 
 $(window).on('load', function () {
   $('.preloader').fadeOut().end().delay(400).fadeOut('slow');

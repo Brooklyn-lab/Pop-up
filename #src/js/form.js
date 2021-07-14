@@ -2,7 +2,7 @@ jQuery(document).ready(function ($) {
    // const slidePage = $(".slide-page");
    // const btnNext = $(".form__button-next");
    // const countNumber = $('#progresNumber');
-   // const btnPrev = $('.card__prev');
+   // const btnPrev = $('.survey__prev');
    // const numberSteps = $('.form__body').length + 1;
 
    // let steps = 1;
@@ -209,7 +209,7 @@ jQuery(document).ready(function ($) {
    const form = $('.form');
    const countNumber = $('#progresNumber');
    const buttonNext = $('.form__button-next');
-   const buttonPrev = $('.card__prev');
+   const buttonPrev = $('.survey__prev');
    const formContent = $('.form__content');
    const buttonReset = $('#buttonReset');
 
@@ -310,7 +310,7 @@ jQuery(document).ready(function ($) {
 
    const step1 = () =>
       `
-      <p class="card__title">Request your personalized loan-proposal</p>
+      <p class="survey__title">Request your personalized loan-proposal</p>
       <div class='form__wrapper'>
          <label for="one-btn" class="form__radio-btn">
             <input type="radio" name='personalized' id="one-btn" data-value='5'>
@@ -332,7 +332,7 @@ jQuery(document).ready(function ($) {
 
    const step2 = () =>
       `
-      <p class="card__title">Fill the rows below to suits better loan-offer for you</p>
+      <p class="survey__title">Fill the rows below to suits better loan-offer for you</p>
       <div class='form__wrapper'>
          <input type="text" name='name' placeholder='First name' class='form__input' require>
          <input type="text" name='lastName' placeholder='Last name' class='form__input' require>
@@ -349,7 +349,7 @@ jQuery(document).ready(function ($) {
 
    const step4 = () =>
       `
-         <p class="card__title">Credit score</p>
+         <p class="survey__title">Credit score</p>
          <div class='form__wrapper'>
             <label for="four-btn" class="form__radio-btn">
                <input type="radio" name='credits' checked id="four-btn" data-value='<720'>
@@ -376,7 +376,7 @@ jQuery(document).ready(function ($) {
 
    const step5 = () =>
       `
-         <p class="card__title">Employment status</p>
+         <p class="survey__title">Employment status</p>
          <div class='form__wrapper'>
             <label for="eight-btn" class="form__radio-btn">
                <input type="radio" checked name='employment' id="eight-btn" data-value='full time'>
@@ -408,7 +408,7 @@ jQuery(document).ready(function ($) {
 
    const step6 = () =>
       `
-         <p class="card__title">What’s your yearly pre-tax income?</p>
+         <p class="survey__title">What’s your yearly pre-tax income?</p>
          <div class='form__wrapper'>
             <input id='preTax' type="number" name='preTax' placeholder='€ 90.000' class='form__input' require> 
          </div>
@@ -416,7 +416,7 @@ jQuery(document).ready(function ($) {
 
    const step7 = () =>
       `
-         <p class="card__title">How do we contact you?</p>
+         <p class="survey__title">How do we contact you?</p>
          <div class='form__wrapper'>
             <input type="email" name='email' placeholder='E-mail' class='form__input' require>
             <input type="tel" id='phone' name='telephone' placeholder='+1 201-555-0123' class='form__input' require>
@@ -425,8 +425,8 @@ jQuery(document).ready(function ($) {
 
    const step8 = () =>
       `
-      <p class="card__title">Thank you for filling out the form!</p>
-      <p class="card__title">We’ll send you an email with loan-information in 24h at the email address you provided. </p>
+      <p class="survey__title">Thank you for filling out the form!</p>
+      <p class="survey__title">We’ll send you an email with loan-information in 24h at the email address you provided. </p>
       <p>Respectfully, The <span>[Your Company]</span> Team</p>
       `
 

@@ -1,5 +1,6 @@
 @@include('webP.js');
 @@include('form.js');
+@@include('survey.js');
 
 $(window).on('load', function () {
   $('.preloader').fadeOut().end().delay(400).fadeOut('slow');

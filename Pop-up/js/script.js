@@ -915,4 +915,57 @@ jQuery(document).ready(function () {
 
 
   $('a').click(function (e) { e.preventDefault() })
+
+
+  //-----------------------------------------------
+
+  // var granimInstance = new Granim({
+  //   element: '#circle',
+  //   direction: 'left-right',
+  //   isPausedWhenNotInView: true,
+  //   states: {
+  //     "default-state": {
+  //       gradients: [
+  //         [
+  //           { color: '#833ab4', pos: .2 },
+  //           { color: '#fd1d1d', pos: .8 },
+  //           { color: '#38ef7d', pos: 1 }
+  //         ], [
+  //           { color: '#40e0d0', pos: 0 },
+  //           { color: '#ff8c00', pos: .2 },
+  //           { color: '#ff0080', pos: .75 }
+  //         ],
+  //       ]
+  //     }
+  //   }
+  // });
+
+  var granimInstance = new Granim({
+    element: '#canvas-image-blending',
+    direction: 'top-bottom',
+    isPausedWhenNotInView: true,
+    image: {
+      source: '../img/pik7.jpeg',
+      position: ['center', 'bottom'],
+      stretchMode: ['stretch', 'stretch-if-bigger'],
+      blendingMode: 'multiply'
+    },
+    states: {
+      "default-state": {
+        gradients: [
+          // ['#29323c', '#485563'],
+          // ['#FF6B6B', '#556270'],
+          // ['#80d3fe', '#7ea0c4'],
+          // ['#f0ab51', '#eceba3']
+          ['#30cfd0', '#330867'],
+          ['#a7a6cb', '#8989ba'],
+          ['#13547a', '#80d0c7'],
+          ['#fff1eb', '#ace0f9'],
+          ['#ff0000', '#000021'],
+        ],
+        transitionSpeed: 3000
+      }
+    }
+  });
+
 });

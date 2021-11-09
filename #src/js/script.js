@@ -85,6 +85,42 @@ jQuery(document).ready(function () {
     new Date().getFullYear(),
   ); /* Находим нужный отрезок в html, чтобы заменить его на текущий год */
 
+  // Count 24h --------------------------------------
+
+  // получаем элементы, содержащие компоненты даты
+  const $days = document.querySelector('.days');
+  const $hours = document.querySelector('.hours');
+  const $minutes = document.querySelector('.minutes');
+  const $seconds = document.querySelector('.seconds');
+
+  // конечная дата
+  const deadline = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 01);
+  // id таймера
+  let timerId = null;
+  // склонение числительных
+  function declensionNum(num, words) {
+    return words[(num % 100 > 4 && num % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(num % 10 < 5) ? num % 10 : 5]];
+  }
+  // вычисляем разницу дат и устанавливаем оставшееся времени в качестве содержимого элементов
+  function countdownTimer() {
+    const diff = deadline - new Date();
+    if (diff <= 0) {
+      clearInterval(timerId);
+    }
+    const days = 0;
+    const hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
+    const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
+    const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+    $days.textContent = days < 10 ? '0' + days : days;
+    $hours.textContent = hours < 10 ? '0' + hours : hours;
+    $minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
+    $seconds.textContent = seconds < 10 ? '0' + seconds : seconds;
+  }
+  // вызываем функцию countdownTimer
+  countdownTimer();
+  // вызываем функцию countdownTimer каждую секунду
+  timerId = setInterval(countdownTimer, 1000);
+
   // Count 5 min-------------------------------------------
 
   function startTimer(duration, display) {
@@ -123,197 +159,147 @@ jQuery(document).ready(function () {
   var today = `${dayOfMonth}. ${curMonth} ${curYear}`
 
   $('#newDate').html(today);
-});
-
-// ----------------- плавный скролл по странице к нужному месту -----------
-
-$('#ancor').on('click', 'a', function (event) {
-  event.preventDefault();
-  let id = $(this).attr('href'),
-    top = $(id).offset().top;
-  $('body,html').animate({ scrollTop: top }, 1500);
-});
-
-// $(window).scroll(function () {
-//   let skrollHidden = $(window).scrollTop();
-
-//   if (skrollHidden > 300) {
-//     $('.organization-carts__extra').addClass('animate-hidden');
-//   } else {
-//     $('.organization-carts__extra').removeClass('animate-hidden');
-//   }
-
-//   if (skrollHidden > 500) {
-//     $('#section2').addClass('animate-hidden2');
-//   } else {
-//     $('#section2').removeClass('animate-hidden2');
-//   }
-// });
-let animateHidden = $('.animate-hidden');
-animateHidden.waypoint(
-  function () {
-    animateHidden.addClass('not-in-view');
-  },
-  { offset: '80%' },
-);
-
-// (function showBlocksOnScroll() {
-//   if ($.fn.waypoint) {
-//     $('.animate-hidden').addClass('not-in-view');
-//     $('.animate-hidden').waypoint(
-//       function () {
-//         this.element.classList.remove('not-in-view');
-//       },
-//       { offset: '80%' },
-//     );
-//   }
-// })();
-
-$(window).scroll(function () {
-  let height = $(window).scrollTop();
-  /*Если сделали скролл на 600px задаём новый класс для span*/
-  if (height > 600) {
-    $('#span').addClass('active');
-  } else {
-    /*Если меньше 600px удаляем класс для span*/
-    $('#span').removeClass('active');
-  }
-
-  if (height > 100) {
-    /*Если сделали скролл на 100px задаём новый класс для ancor*/
-    $('#ancor').addClass('active');
-  } else {
-    /*Если меньше 100px удаляем класс для ancor*/
-    $('#ancor').removeClass('active');
-  }
-});
-
-// ================================================
-
-// Попап без тайминга с куками на 1 день. 
-
-// function getCookie(name) {
-//   let matches = document.cookie.match(new RegExp(
-//     "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-//   ));
-//   return matches ? decodeURIComponent(matches[1]) : undefined;
-// }
-
-// Находим попап 
-// const popup = $('#popup');
-// const popup2 = $('#popup2');
-// const popup3 = $('#popup3');
-// const popupCloses = $('#close-popup');
-// const popupCloses2 = $('#close-popup2');
-// const popupCloses3 = $('#close-popup3');
-
-// // Создаем для каждого нового попапа переменную с cookie 
-// let alertwin = getCookie("alertwin");
-// let alertwin2 = getCookie("alertwin2");
-// let alertwin3 = getCookie("alertwin3");
-
-// // Функция проверки cookie и удаления попапа с нужной cookie
-// function removePopup(cookie, cookieMeaning, pop) {
-//   if (cookie == `${cookieMeaning}`) {
-//     pop.remove()
-//   }
-// };
-
-// // Вызываем для каждого нового попапа проверку и удаление
-// removePopup(alertwin, 'no', popup);
-// removePopup(alertwin2, 'no2', popup2);
-// removePopup(alertwin3, 'no3', popup3);
-
-// // По клику на закрытие попапа добавляем cooklie на сутки и удаляем попап
-// function hidePopup(closeClass, pop, cookieKey, cookieMeaning) {
-//   closeClass.click(() => {
-//     pop.removeClass('active').addClass('closes')
-
-//     if (pop.hasClass('closes')) {
-//       let date = new Date;
-//       date.setDate(date.getDate() + 1);
-//       document.cookie = `${cookieKey}=${cookieMeaning}; path=/; expires=` + date.toUTCString();
-
-//       let cookie = getCookie(`${cookieKey}`);
-//       if (cookie == `${cookieMeaning}`) pop.remove()
-//     }
-//   })
-// }
-
-// // Выводим нужный попап при попытке уйти с сайта
-// $(document).mouseleave(function (e) {
-//   if (e.clientY < 10) {
-//     popup.addClass('active')
-
-//     hidePopup(popupCloses, popup, 'alertwin', 'no')
-
-//     if (popup2) {
-//       if (alertwin == "no") popup2.addClass('active')
-//       hidePopup(popupCloses2, popup2, 'alertwin2', 'no2')
-//     }
-
-//     if (popup3) {
-//       if (alertwin2 == "no2") popup3.addClass('active')
-//       hidePopup(popupCloses3, popup3, 'alertwin3', 'no3')
-//     }
-//   }
-// });
-
-//--------------------------------------------
 
 
-$('a').click(function (e) { e.preventDefault() })
+  // ----------------- плавный скролл по странице к нужному месту -----------
 
+  $('#ancor').on('click', 'a', function (event) {
+    event.preventDefault();
+    let id = $(this).attr('href'),
+      top = $(id).offset().top;
+    $('body,html').animate({ scrollTop: top }, 1500);
+  });
 
-//-----------------------------------------------
+  // $(window).scroll(function () {
+  //   let skrollHidden = $(window).scrollTop();
 
-// var granimInstance = new Granim({
-//   element: '#circle',
-//   direction: 'left-right',
-//   isPausedWhenNotInView: true,
-//   states: {
-//     "default-state": {
-//       gradients: [
-//         [
-//           { color: '#833ab4', pos: .2 },
-//           { color: '#fd1d1d', pos: .8 },
-//           { color: '#38ef7d', pos: 1 }
-//         ], [
-//           { color: '#40e0d0', pos: 0 },
-//           { color: '#ff8c00', pos: .2 },
-//           { color: '#ff0080', pos: .75 }
-//         ],
-//       ]
-//     }
-//   }
-// });
+  //   if (skrollHidden > 300) {
+  //     $('.organization-carts__extra').addClass('animate-hidden');
+  //   } else {
+  //     $('.organization-carts__extra').removeClass('animate-hidden');
+  //   }
 
-var granimInstance = new Granim({
-  element: '#canvas-image-blending',
-  direction: 'top-bottom',
-  isPausedWhenNotInView: true,
-  image: {
-    source: '../img/pik7.jpeg',
-    position: ['center', 'bottom'],
-    stretchMode: ['stretch', 'stretch-if-bigger'],
-    blendingMode: 'multiply'
-  },
-  states: {
-    "default-state": {
-      gradients: [
-        // ['#29323c', '#485563'],
-        // ['#FF6B6B', '#556270'],
-        // ['#80d3fe', '#7ea0c4'],
-        // ['#f0ab51', '#eceba3']
-        ['#30cfd0', '#330867'],
-        ['#a7a6cb', '#8989ba'],
-        ['#13547a', '#80d0c7'],
-        ['#fff1eb', '#ace0f9'],
-        ['#ff0000', '#000021'],
-      ],
-      transitionSpeed: 3000
+  //   if (skrollHidden > 500) {
+  //     $('#section2').addClass('animate-hidden2');
+  //   } else {
+  //     $('#section2').removeClass('animate-hidden2');
+  //   }
+  // });
+  let animateHidden = $('.animate-hidden');
+  animateHidden.waypoint(
+    function () {
+      animateHidden.addClass('not-in-view');
+    },
+    { offset: '80%' },
+  );
+
+  // (function showBlocksOnScroll() {
+  //   if ($.fn.waypoint) {
+  //     $('.animate-hidden').addClass('not-in-view');
+  //     $('.animate-hidden').waypoint(
+  //       function () {
+  //         this.element.classList.remove('not-in-view');
+  //       },
+  //       { offset: '80%' },
+  //     );
+  //   }
+  // })();
+
+  $(window).scroll(function () {
+    let height = $(window).scrollTop();
+    /*Если сделали скролл на 600px задаём новый класс для span*/
+    if (height > 600) {
+      $('#span').addClass('active');
+    } else {
+      /*Если меньше 600px удаляем класс для span*/
+      $('#span').removeClass('active');
     }
-  }
-});
+
+    if (height > 100) {
+      /*Если сделали скролл на 100px задаём новый класс для ancor*/
+      $('#ancor').addClass('active');
+    } else {
+      /*Если меньше 100px удаляем класс для ancor*/
+      $('#ancor').removeClass('active');
+    }
+  });
+
+  // ================================================
+
+  // Попап без тайминга с куками на 1 день. 
+
+  // function getCookie(name) {
+  //   let matches = document.cookie.match(new RegExp(
+  //     "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  //   ));
+  //   return matches ? decodeURIComponent(matches[1]) : undefined;
+  // }
+
+  // Находим попап 
+  // const popup = $('#popup');
+  // const popup2 = $('#popup2');
+  // const popup3 = $('#popup3');
+  // const popupCloses = $('#close-popup');
+  // const popupCloses2 = $('#close-popup2');
+  // const popupCloses3 = $('#close-popup3');
+
+  // // Создаем для каждого нового попапа переменную с cookie 
+  // let alertwin = getCookie("alertwin");
+  // let alertwin2 = getCookie("alertwin2");
+  // let alertwin3 = getCookie("alertwin3");
+
+  // // Функция проверки cookie и удаления попапа с нужной cookie
+  // function removePopup(cookie, cookieMeaning, pop) {
+  //   if (cookie == `${cookieMeaning}`) {
+  //     pop.remove()
+  //   }
+  // };
+
+  // // Вызываем для каждого нового попапа проверку и удаление
+  // removePopup(alertwin, 'no', popup);
+  // removePopup(alertwin2, 'no2', popup2);
+  // removePopup(alertwin3, 'no3', popup3);
+
+  // // По клику на закрытие попапа добавляем cooklie на сутки и удаляем попап
+  // function hidePopup(closeClass, pop, cookieKey, cookieMeaning) {
+  //   closeClass.click(() => {
+  //     pop.removeClass('active').addClass('closes')
+
+  //     if (pop.hasClass('closes')) {
+  //       let date = new Date;
+  //       date.setDate(date.getDate() + 1);
+  //       document.cookie = `${cookieKey}=${cookieMeaning}; path=/; expires=` + date.toUTCString();
+
+  //       let cookie = getCookie(`${cookieKey}`);
+  //       if (cookie == `${cookieMeaning}`) pop.remove()
+  //     }
+  //   })
+  // }
+
+  // // Выводим нужный попап при попытке уйти с сайта
+  // $(document).mouseleave(function (e) {
+  //   if (e.clientY < 10) {
+  //     popup.addClass('active')
+
+  //     hidePopup(popupCloses, popup, 'alertwin', 'no')
+
+  //     if (popup2) {
+  //       if (alertwin == "no") popup2.addClass('active')
+  //       hidePopup(popupCloses2, popup2, 'alertwin2', 'no2')
+  //     }
+
+  //     if (popup3) {
+  //       if (alertwin2 == "no2") popup3.addClass('active')
+  //       hidePopup(popupCloses3, popup3, 'alertwin3', 'no3')
+  //     }
+  //   }
+  // });
+
+  //--------------------------------------------
+
+
+  $('a').click(function (e) { e.preventDefault() })
+
+
 
 });

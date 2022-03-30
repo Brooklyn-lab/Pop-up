@@ -161,6 +161,39 @@ jQuery(document).ready(function () {
   $('#newDate').html(today);
 
 
+  //------------Smooth scroll-------------
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Обратный отсчет
+  var minute = 60;  // желаемое время таймера в минутах (5 минут)
+  var date = new Date(); // получаем сегодняшнюю дату и время
+  var deadlineTime = date.setMinutes(date.getMinutes() + minute); // устанавливаем таймер на 5 минут
+  // обновляем скрипт каждую секунду - так мы получаем обратный отсчет	
+  var countdown = setInterval(function () {
+    var now = new Date().getTime(); // текущее время
+    var restTime = deadlineTime - now; // находим различие между текущим моментом и временем дедлайна
+    // преобразовываем значение миллисекунд в минуты и секунды
+    var minute = Math.floor((restTime % (1000 * 60 * 60)) / (1000 * 60));
+    var second = Math.floor((restTime % (1000 * 60)) / 1000);
+    // если значение текущей минуты или секунды меньше 10, добавляем вначале ведущий ноль
+    minute = minute < 10 ? "0" + minute : minute;
+    second = second < 10 ? "0" + second : second;
+    // отображаем результат таймера в элементе с id="deadline-timer"
+    document.getElementById("time").innerHTML = `00:${minute}:${second}`;
+    // когда обратный отсчет закончился, отображаем соответствующее уведомление
+    if (restTime < 0) {
+      clearInterval(countdown);
+    }
+  }, 1000);
+
   // ----------------- плавный скролл по странице к нужному месту -----------
 
   $('#ancor').on('click', 'a', function (event) {
